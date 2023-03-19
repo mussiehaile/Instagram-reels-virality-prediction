@@ -1,6 +1,6 @@
 
 
-                  # Instagram Reels Virality Prediction using Apify
+# **Instagram Reels Virality Prediction using Apify**
 
 
 This repository contains the code for predicting the virality of Instagram Reels, using data extracted by Apify. The aim of this project is to help content creators understand the factors that affect the success of their Reels and to provide recommendations for improving the virality of their content.
@@ -47,7 +47,7 @@ Use the trained model to predict the virality of new Instagram Reels.
 
 The dataset used in this project was collected by scraping Instagram Reels using Apify. It contains information about the number of views, likes, comments, and shares for a set of Reels, as well as various metadata such as the date and time the Reel was posted, the hashtags used, and the user who posted the Reel.
 
-##M odel
+## Model
 
 
 The model used in this project is a linear regression model. It takes as input various features of the Reel, such as the number of views, likes, comments, and shares, as well as metadata such as the date and time the Reel was posted and the hashtags used, and outputs a prediction of the number of views the Reel is likely to receive.
