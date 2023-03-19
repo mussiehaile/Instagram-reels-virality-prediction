@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <!--From https://codepen.io/frytyler/pen/EGdtg-->
+  <head>
+    <meta charset="UTF-8" />
+    <title>ML API</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Arimo"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Hind:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body>
+    <div
+      class="max-w-[100%] px-24 mx-auto container my-auto h-[100vh] bg-[#071013] flex items-center justify-between"
+    >
+      <div class="flex gap-4 flex-col w-[42%] items-start justify-center">
+        <h1 class="text-4xl text-white font-extrabold">
+          Instagram Reels Trend Analysis
+        </h1>
+        <p class="text-white font-light">
+          Our Instagram Reels Trending Prediction tool utilizes advanced machine learning algorithms to predict 
+          the trend of your videos based on the number of likes and comments it receives,
+           along with other deep metrics. With just your Instagram username,
+           our tool will analyze your video's engagement and provide valuable insights on its potential success.
+
+           No need to spend hours analyzing your video's performance,
+            our tool simplifies the process by providing accurate predictions within seconds. 
+            With our user-friendly interface, anyone can easily use this tool by simply entering their Instagram username. 
+            So, give your videos the boost they need and get ahead of the competition with our Instagram Reels Trending Prediction tool.
+        </p>
+        <form
+          class="w-full flex gap-2 items-center justify-center"
+          action="{{ url_for('get_instagram_data') }}" method="post"
+        >
+          <!-- {{ prediction_text }} -->
+
+          <input
+            class="rounded border flex-1 px-2 text-xs h-12 focus:outline-none"
+            type="text" id="username" name="username" required
+          />
+          <input
+          type="submit" value="Submit"
+            class="bg-red-500 w-[20%] text-white rounded px-4 h-12"
+          />
+            
+        </form>
+      </div>
+      <!-- Main Input For Receiving Query to our ML -->
+
+      <div class="flex flex-col min-w-[50%] gap-4 items-center">
+        <div
+          class="bg-[#272D2D] shadow-lg min-h-[400px] w-[600px] rounded"
+        >
+        {{ plot_html|safe }}
+        </div>
+        <h1
+          class="text-red-500 py-4 text-sm bg-white rounded w-[600px] text-center text-xl"
+        >
+        {% if prediction == 1 %}
+          Trending!
+        {% elif prediction == 0 %}
+          Not Trending!.
+        {% endif %}
+        </h1>
+      </div>
+    </div>
+  </body>
+</html>
